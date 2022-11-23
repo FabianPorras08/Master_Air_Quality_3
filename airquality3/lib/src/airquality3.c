@@ -1,7 +1,7 @@
 /*
  */
 
-//Otra prueba mas
+//Esto es una prueba para la guía
 
 /*!
  * \file
