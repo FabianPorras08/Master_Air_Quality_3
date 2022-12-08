@@ -9,13 +9,21 @@ Iván Rojas Calvo
 
 #include "lib.h"
 
-/*********************************************/
-/*
-  Prueba de lectura 
-*/
-/********************************************/
+void setup(){
+  Serial.begin(9600);
+  Serial.print("Test de datos aleatorios: \n"); // Se debe cambiar según la prueba
+  }
+
+void loop(){
+  //airquality3_get_co2_and_tvoc();
+  airquality3_data_receiving();
+  //airquality3_software_reset();
+  }
+
+
 
 // Prueba de escritura del sensor en monitor serial
+/*
 float data = 0;
 int valor = 0;
 
@@ -50,7 +58,9 @@ void loop(){
     } 
   }
 }
+*/
 
+// Ejemplo de suma
 /*
 float resultado = 0;
   
@@ -63,4 +73,5 @@ void loop() {
   resultado = suma(5,3);
   Serial.println(resultado);
   delay(500);
-}*/
+}
+*/
