@@ -48,7 +48,7 @@ void airquality3_set_baseline(){
 //  Funcion para correcion de linea de base en mediciones
 //-------------------------------------------------------
 
-void airquality3_set_baseline(int horas_uso){
+void airquality3_set_measurement_mode(int horas_uso){
   
   while(horas_uso > 24)
   {  //24 horas 
