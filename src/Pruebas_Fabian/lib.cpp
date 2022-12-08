@@ -51,7 +51,7 @@
 //       Serial.println("\nPor favor seleccione una opción válida. ");
 //       }
 // }
-//
+
 // void modo0(){
 //    Serial.println("\nEn este modo la corriente está inactiva y baja");
 //    return;
@@ -73,49 +73,49 @@
 //    return;
 //}
 
-//Prueba #2 - Temperatura ambiente para la operación
+//Prueba #2 - Temperatura almacenada para la operación
 
-//void airquality3_temperatura() {
-//  float temp = random(-5, 50);
+//void airquality3_temperatura_almacenada() {
+//  float temp = random(-40, 125);
 //
-//  Serial.println("La temperatura ambiente en °C es de: ");
+//  Serial.println("La temperatura almacenada en °C es de: ");
 //  Serial.println(temp);
 //  delay(4000);
 //}
-//void airquality3_rangos_temperatura() {
-//  float temp = random(-25, 100);
-//  Serial.println("Temperatura en °C: ");
+//void airquality3_rangos_temperatura_almacenada() {
+//  float temp = random(-70, 200);
+//  Serial.println("Temperatura almacenada en °C: ");
 //  Serial.println(temp);
 //
-//  if (temp >= -5 && temp <= 50) {
-//    Serial.println("Temperatura ambiente óptima para su uso ");
+//  if (temp >= -40 && temp <= 125) {
+//    Serial.println("Temperatura almacenada óptima para su uso. ");
 //    delay(4000);
 //  }
 //  else {
-//    Serial.println("Temperatura ambiente nada favorable para su uso ");
+//    Serial.println("Temperatura almacenada nada favorable para su uso. ");
 //    delay(4000);
 //  }
 //}
 
 // Prueba 3 - Humedad relativa (no condensación)
-//  void airquality3_porcent_humedad(){
-//    float hum = random(10,95);
-//  
-//    Serial.println("El porcentaje de la humedad relativa °C es de: ");
-//    Serial.println(hum);
-//    delay(4000);
-//  }
-//  void airquality3_rangos_porcent_humedad() {
-//    float hum = random(-20,500);
-//    Serial.println("El porcentaje de la humedad relativa °C es de: ");
-//    Serial.println(hum);
-//  
-//    if (hum >= 10 && hum <= 95) {
-//      Serial.println("Humedad relativa óptima para su uso ");
-//      delay(4000);
-//    }
-//    else {
-//      Serial.println("Humedad relativa nada favorable para su uso ");
-//      delay(4000);
-//    }
-//  }
+  void airquality3_porcent_humedad(){
+    float hum = random(10,95);
+  
+    Serial.println("El porcentaje de la humedad relativa °C es de: ");
+    Serial.println(hum);
+    delay(4000);
+  }
+  void airquality3_rangos_porcent_humedad() {
+    float hum = random(-20,500);
+    Serial.println("El porcentaje de la humedad relativa °C es de: ");
+    Serial.println(hum);
+  
+    if (hum >= 10 && hum <= 95) {
+      Serial.println("Humedad relativa óptima para su uso ");
+      delay(4000);
+    }
+    else {
+      Serial.println("Humedad relativa nada favorable para su uso ");
+      delay(4000);
+    }
+  }
