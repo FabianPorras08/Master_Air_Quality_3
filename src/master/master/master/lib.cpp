@@ -145,10 +145,10 @@ void airquality3_rangos_temperatura() {
 
 // Prueba #4 - Lectura y escritura de datos CO2 y TVOC
 
+void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
+
   int co2 = random(400,8192); // Número aleatorio para pruebas del sensor
   int tvoc = random(0,1187);
-  
-void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
   
   Serial.print("\n>> El valor de CO2 es ");
   Serial.print(co2);
@@ -159,7 +159,7 @@ void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
   Serial.print(" ppb.\n");
   
   delay(1500);
-  }  
+  }   
 
 /************************************************************************************************************/
 
@@ -199,16 +199,23 @@ void airquality3_software_reset(){
   reset.trim();                        // remove any \r \n whitespace at the end of the String
   
   if (reset == "reset") {
+    
     Serial.println("\n  Reseting device, returning to BOOT mode.");
-    //co2 = 0; // Número aleatorio para pruebas del sensor
-    //tvoc = 0;
+    Serial.println("  ¿Desea reiniciar el sensor y seguir midiendo? s/n.");
+    while (Serial.available() == 0) {}     //wait for data available
+    String s_n = Serial.readString();  //read until timeout
+    s_n.trim();
+   
+    while(s_n == "n"){
+    Serial.println("\n BOOT MODE");
+    delay(5000);
+    }
   } 
   
   else {
     Serial.println("\n  Fallo al generar reset");
   }
 }
-
 
 /*****************************************************
   Pruebas de las bibliotecas en Arduino IDE

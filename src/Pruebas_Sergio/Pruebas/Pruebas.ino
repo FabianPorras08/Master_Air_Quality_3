@@ -16,8 +16,8 @@ void setup(){
 
 void loop(){
   //airquality3_get_co2_and_tvoc();
-  airquality3_data_receiving();
-  //airquality3_software_reset();
+  //airquality3_data_receiving();
+  airquality3_software_reset();
   }
 
 
