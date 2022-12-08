@@ -19,6 +19,10 @@ int nResultado = 0;
 
 void setup() {
   Serial.begin(9600);
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 8d47b0fbbb93fe3c0ec7a732e54edb650d81efc5
 
 }
 void loop() {
