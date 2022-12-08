@@ -1,18 +1,17 @@
-/*****************************************************
 
+/*****************************************************
   Prueba de las bibliotecas en Arduino IDE
   Estudiantes: Sergio Rojas Calvo, Fabián Porras Castillo,
   Iván Rojas Calvo
-
 ******************************************************/
 
 #include "lib.h"
-/*****************************************************
 
+/*****************************************************
   Prueba de las bibliotecas en Arduino IDE
   Estudiante: Sergio Rojas Calvo
-
 ******************************************************/
+
 float data = 0;
 int valor = 0;
 float resultado = 0;
@@ -28,12 +27,13 @@ void loop() {
   airquality3_data_receiving();
   airquality3_software_reset();
 }
-/*****************************************************
 
+
+/*****************************************************
   Prueba de las bibliotecas en Arduino IDE
   Estudiante: Ivan Rojas Calvo
-
 ******************************************************/
+
 void setup(){
   Serial.begin(9600);
 }
@@ -48,10 +48,13 @@ void loop(){
   airquality3_set_baseline();
   airquality3_set_baseline(48);
 }
+
+
 /*****************************************************
   Prueba de las bibliotecas en Arduino IDE
   Estudiante: Fabián Porras Castillo
 ******************************************************/
+
   int resultado_menu;
   void setup(){
     Serial.begin(9600);
