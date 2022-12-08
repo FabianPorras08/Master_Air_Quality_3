@@ -25,9 +25,9 @@ void airquality3_data_receiving(){
   Serial.print("\n>> Dato CO2(ppm): ");
   Serial.println(co2);
   Serial.print(">> Dato TVOC(ppb): ");
-  Serial.println(tvoc);
+  Serial.println(tvoc);                       //
   
-  if (400 >= co2 >= 8192, 0 >= tvoc >= 1187){
+  if (co2>=400 && co2<=8192, tvoc>=0  && tvoc<=1187 ){             // 
   Serial.println("\n>> Recibiendo datos correctamente ");
   delay(2000);
   }
