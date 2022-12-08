@@ -10,7 +10,8 @@ void loop(){
   
   while (Serial.available() == 0){
   }
-  airquality3_set_environment_data(50);
+  airquality3_set_environment_data(80); //Dato ideal para una temperatura de 9 °C según data sheet
+  airquality3_set_baseline();
 }
 
 //hola
