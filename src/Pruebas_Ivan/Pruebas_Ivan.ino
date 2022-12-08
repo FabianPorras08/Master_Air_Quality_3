@@ -12,6 +12,7 @@ void loop(){
   }
   airquality3_set_environment_data(80); //Dato ideal para una temperatura de 9 °C según data sheet
   airquality3_set_baseline();
+  airquality3_set_baseline(48);
 }
 
 //hola

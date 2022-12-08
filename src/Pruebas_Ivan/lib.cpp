@@ -2,9 +2,10 @@
 #include "lib.h"
 #include <Arduino.h>
 
-//**********************************************************
+//----------------------------------------------------------
 //  Funcion para establecer un valor de temperatura adecuado
-//**********************************************************
+//----------------------------------------------------------
+
 void airquality3_set_environment_data (float fntc_steps){
   float T;
 
@@ -24,9 +25,9 @@ void airquality3_set_environment_data (float fntc_steps){
   }
 }
 
-//**********************************************************
+//------------------------------------------------------------
 //  Funcion que escribe comando de inicializacion de booloader
-//**********************************************************
+//------------------------------------------------------------
 
 void airquality3_set_baseline(){
   
@@ -40,5 +41,22 @@ void airquality3_set_baseline(){
   } 
   else {
     Serial.println("Error al inciar aplicacion");
+  }
+}
+
+//-------------------------------------------------------
+//  Funcion para correcion de linea de base en mediciones
+//-------------------------------------------------------
+
+void airquality3_set_baseline(int horas_uso){
+  
+  while(horas_uso > 24)
+  {  //24 horas 
+
+    //Durante las primeras 500 horas (5 representa 500), ajuste la linea de base cada 24-48 horas
+    for(int i; i<=5; i++){
+      Serial.println("Actualice la linea de base para mediciones de CO2 y TVOC");
+      delay(480); // Simula las 48 horas para mandar mensaje de actualizacion
+    }
   }
 }
