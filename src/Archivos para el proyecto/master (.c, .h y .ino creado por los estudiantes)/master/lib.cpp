@@ -11,7 +11,7 @@
 /************************************************************************************************************/
 
 // Prueba #1 - Modos de operación
-
+  // Esta es la forma en la que se imprime el menú
   void Modos_de_operacion(){
     int resultado_menu;
     Serial.println("\nSeleccione el modo deseado: ");
@@ -27,6 +27,7 @@
  }
 
  void seleccionarOpcion(int nResultado){ // Recibe por parámetro el entero digitado por el usuario
+  // Switch case, determina en el menu los diferentes casos, estos casos son las funciones declaradas en el .h para cada prueba.
     switch (nResultado)
       {
        case 1:
@@ -59,7 +60,7 @@
        Serial.println("\nPor favor seleccione una opción válida. ");
        }
  }
-
+// En esta parte del código se imprime lo que corresponde a cada modo
  void modo0(){
     Serial.println("\nEn este modo la corriente está inactiva y baja");
     return;
@@ -84,19 +85,19 @@
 /************************************************************************************************************/
 
 //Prueba #2 - Temperatura ambiente para la operación
-
+// En este bloque de código, se tomarán valores randomizados para las mediciones de la temperatura almacenada
 void airquality3_temperatura_almacenada() {
   float temp = random(-40, 125);
-
   Serial.println("La temperatura almacenada en °C es de: ");
   Serial.println(temp);
   delay(4000);
 }
+// En este bloque de código, se tomarán valores randomizados con un rango mayor al deseado en las mediciones de la temperatura almacenada para determinar si son óptimos o no
 void airquality3_rangos_temperatura_almacenada() {
   float temp = random(-70, 200);
   Serial.println("Temperatura almacenada en °C: ");
   Serial.println(temp);
-
+// El if y elsa son los encargados de las comparaciones.
   if (temp >= -40 && temp <= 125) {
     Serial.println("Temperatura almacenada óptima para su uso. ");
     delay(4000);
@@ -110,7 +111,7 @@ void airquality3_rangos_temperatura_almacenada() {
 /************************************************************************************************************/
 
 // Prueba #3 - Humedad relativa (no condensación)
-
+// En este bloque de código, se tomarán valores randomizados para las mediciones del porcentaje de humedad
   void airquality3_porcent_humedad(){
     float hum = random(10,95);
   
@@ -118,11 +119,12 @@ void airquality3_rangos_temperatura_almacenada() {
     Serial.println(hum);
     delay(4000);
   }
+// En este bloque de código, se tomarán valores randomizados con un rango mayor al deseado en las mediciones del porcentaje de humedad para determinar si es óptimo o no
   void airquality3_rabgos_porcent_humedad() {
     float hum = random(20,94);
     Serial.println("El porcentaje de la humedad relativa °C es de: ");
     Serial.println(hum);
-  
+// El if y elsa son los encargados de las comparaciones.
     if (10 >= hum >= 35) {
       Serial.println("Humedad relativa óptima para su uso ");
       delay(4000);
@@ -146,18 +148,17 @@ void airquality3_rangos_temperatura_almacenada() {
 
 void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
   Serial.print("Test de Lectura y escritura de datos CO2 y TVOC \n"); // Se debe cambiar según la prueba
-  
-  int co2 = random(400,8192); // Número aleatorio para pruebas del sensor
+  // Números aleatorios para las pruebas del sensor
+  int co2 = random(400,8192); 
   int tvoc = random(0,1187);
-  
+  // Serial.println para cada dato del sensor
   Serial.print("\n>> El valor de CO2 es ");
   Serial.print(co2);
   Serial.print(" ppm.");
-  
+  // Serial.println para cada dato del sensor
   Serial.print("\n>> El valor de TVOC es ");
   Serial.print(tvoc);
   Serial.print(" ppb.\n");
-  
   delay(1500);
   }   
 
@@ -168,23 +169,22 @@ void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
 void airquality3_data_receiving(){ 
 
   Serial.print("Test de Recibo de datos correctos e inválidos");
-  
-  int co2 = random(300,8200); // Número aleatorio para pruebas del sensor
+  // Números aleatorios para las pruebas del sensor
+  int co2 = random(300,8200); 
   int tvoc = random(-100,1200);
   Serial.print("\n>> Dato CO2(ppm): ");
   Serial.println(co2);
   Serial.print(">> Dato TVOC(ppb): ");
-  Serial.println(tvoc);                       //
-  
-  if (co2>=400 && co2<=8192, tvoc>=0  && tvoc<=1187 ){             // 
+  Serial.println(tvoc);                     
+  // El if y elsa son los encargados de las comparaciones.
+  if (co2>=400 && co2<=8192, tvoc>=0  && tvoc<=1187 ){           
   Serial.println("\n>> Recibiendo datos correctamente ");
   delay(2000);
   }
-  
   else{
     Serial.println("\nError de medición, dato inválido");
     delay(2000);
-  } 
+  }
 }
 
 /************************************************************************************************************/
@@ -198,26 +198,24 @@ void airquality3_software_reset(){
   Serial.println("  Ingresar 'key'(reset) para un software reset:");
   airquality3_get_co2_and_tvoc();
   
-  while (Serial.available() == 0) {}     //wait for data available
-  String reset = Serial.readString();  //read until timeout
-  reset.trim();                        // remove any \r \n whitespace at the end of the String
+  while (Serial.available() == 0) {}   //Espera por un dato disponible
+  String reset = Serial.readString();  //Leer hasta el tiempo de espera
+  reset.trim();                        //Remueve cualquier espacio del string
   
   if (reset == "reset") {
     
     Serial.println("\n  Reseting device, returning to BOOT mode.");
     Serial.println("  ¿Desea reiniciar el sensor y seguir midiendo? s/n.");
-    while (Serial.available() == 0) {}     //wait for data available
-    String s_n = Serial.readString();  //read until timeout
+    while (Serial.available() == 0) {}     //Espera por un dato disponible
+    String s_n = Serial.readString();      //Leer hasta el tiempo de espera
     s_n.trim();
-   
     while(s_n == "n"){
     Serial.println("\n BOOT MODE");
     delay(5000);
     }
   } 
-  
   else {
-    Serial.println("\n  Fallo al generar reset");
+    Serial.println("\n  Fallo al generar reset");  // Error si el valor del dato es inválido
   }
 }
 

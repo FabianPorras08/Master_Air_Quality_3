@@ -7,26 +7,20 @@
 
 #include "lib.h"
 
-/*****************************************************
-  Prueba de las bibliotecas en Arduino IDE
-  Estudiante: Sergio Rojas Calvo
-******************************************************/
-
+// Flotantes y enteros declarados para su funcion
 float data = 0;
 int valor = 0;
 int resultado_menu = 0;
 int nResultado = 0;
 
+// El void setup solo se ejecuta una vez, este pondrá en el serial.begin con 9600 baudios
 void setup() {
   Serial.begin(9600);
-<<<<<<< HEAD
-=======
-}
->>>>>>> 8d47b0fbbb93fe3c0ec7a732e54edb650d81efc5
 
 }
+// En el void loop se hará todo continuamente, cuenta con una tabla y todos .h declarados para su función
 void loop() {
-
+  // Esta es la forma en la que se imprime el menú
   Serial.println("\nSeleccione el modo deseado: ");
   Serial.println("1. Prueba 1");
   Serial.println("2. Prueba 2");
@@ -41,8 +35,8 @@ void loop() {
   while (Serial.available() == 0) {
   }
   resultado_menu = Serial.parseInt(); // Asignar la variable el dato deseado
-  //seleccionarOpcion(resultado_menu); // Invoca a la función del switch para elegir el dato deseado
 
+  // Switch case, determina en el menu los diferentes casos, estos casos son las funciones declaradas en el .h para cada prueba.
   switch (resultado_menu)
   {
     case 1:
