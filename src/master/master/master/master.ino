@@ -18,8 +18,6 @@ float resultado = 0;
 
 void setup() {
   Serial.begin(9600);
-  Serial.print("Test de datos aleatorios: \n"); // Se debe cambiar según la prueba
-  Serial.print("Test de escritura: \n");
 }
 
 void loop() {

@@ -146,7 +146,8 @@ void airquality3_rangos_temperatura() {
 // Prueba #4 - Lectura y escritura de datos CO2 y TVOC
 
 void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
-
+  Serial.print("Test de Lectura y escritura de datos CO2 y TVOC \n"); // Se debe cambiar según la prueba
+  
   int co2 = random(400,8192); // Número aleatorio para pruebas del sensor
   int tvoc = random(0,1187);
   
@@ -166,7 +167,9 @@ void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
 //Prueba #5 - Recibo de datos correctos e inválidos
 
 void airquality3_data_receiving(){ 
-    
+
+  Serial.print("Test de Recibo de datos correctos e inválidos");
+  
   int co2 = random(300,8200); // Número aleatorio para pruebas del sensor
   int tvoc = random(-100,1200);
   Serial.print("\n>> Dato CO2(ppm): ");
@@ -190,7 +193,9 @@ void airquality3_data_receiving(){
 //Prueba #6 - Prueba de reset de software
 
 void airquality3_software_reset(){
-  
+
+  Serial.print("Test de Reset de software");
+
   Serial.println("  Ingresar 'key'(reset) para un software reset:");
   airquality3_get_co2_and_tvoc();
   
