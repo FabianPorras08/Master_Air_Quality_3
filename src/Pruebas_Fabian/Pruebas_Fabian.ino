@@ -16,8 +16,8 @@ Iván Rojas Calvo
   
   void loop(){
   //Modos_de_operacion();
-  //airquality3_temperatura();
-  //airquality3_rangos_temperatura();
-  airquality3_porcent_humedad();
-//  airquality3_rabgos_porcent_humedad();
+  airquality3_temperatura();
+  airquality3_rangos_temperatura();
+//  airquality3_porcent_humedad();
+//  airquality3_rangos_porcent_humedad();
 }

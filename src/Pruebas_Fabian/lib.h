@@ -12,6 +12,6 @@
   void airquality3_temperatura();
   void airquality3_rangos_temperatura();
   void airquality3_porcent_humedad();
-  void airquality3_rabgos_porcent_humedad();
+  void airquality3_rangos_porcent_humedad();
 
 #endif
