@@ -15,8 +15,8 @@
   void modo3();
   void modo4();
   void seleccionarOpcion(int nResultado);
-  void airquality3_temperatura();
-  void airquality3_rangos_temperatura();
+  void airquality3_temperatura_almacenada();
+  void airquality3_rangos_temperatura_almacenada();
   void airquality3_porcent_humedad();
   void airquality3_rabgos_porcent_humedad();
 
@@ -28,14 +28,16 @@
   void airquality3_get_co2_and_tvoc(); // int co2,int tvoc
   void airquality3_data_receiving();
   void airquality3_software_reset();
-  //float airquality3_generic_write(float A);
-  //float suma(float A,float B);
+  float airquality3_generic_write(float A);
+  float suma(float A,float B);
 
 /*****************************************************
   Prueba  7,8 y 9 de las bibliotecas en Arduino IDE
   Estudiante: Ivan Rojas Calvo
 ******************************************************/
 
-
+  void airquality3_set_environment_data(float fntc_steps);
+  void airquality3_set_baseline();
+  void airquality3_set_measurement_mode(int horas_uso);
 
 #endif

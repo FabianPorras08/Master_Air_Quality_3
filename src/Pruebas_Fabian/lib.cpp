@@ -75,27 +75,27 @@
 
 //Prueba #2 - Temperatura almacenada para la operación
 
-//void airquality3_temperatura_almacenada() {
-//  float temp = random(-40, 125);
-//
-//  Serial.println("La temperatura almacenada en °C es de: ");
-//  Serial.println(temp);
-//  delay(4000);
-//}
-//void airquality3_rangos_temperatura_almacenada() {
-//  float temp = random(-70, 200);
-//  Serial.println("Temperatura almacenada en °C: ");
-//  Serial.println(temp);
-//
-//  if (temp >= -40 && temp <= 125) {
-//    Serial.println("Temperatura almacenada óptima para su uso. ");
-//    delay(4000);
-//  }
-//  else {
-//    Serial.println("Temperatura almacenada nada favorable para su uso. ");
-//    delay(4000);
-//  }
-//}
+void airquality3_temperatura_almacenada() {
+  float temp = random(-40, 125);
+
+  Serial.println("La temperatura almacenada en °C es de: ");
+  Serial.println(temp);
+  delay(4000);
+}
+void airquality3_rangos_temperatura_almacenada() {
+  float temp = random(-70, 200);
+  Serial.println("Temperatura almacenada en °C: ");
+  Serial.println(temp);
+
+  if (temp >= -40 && temp <= 125) {
+    Serial.println("Temperatura almacenada óptima para su uso. ");
+    delay(4000);
+  }
+  else {
+    Serial.println("Temperatura almacenada nada favorable para su uso. ");
+    delay(4000);
+  }
+}
 
 // Prueba 3 - Humedad relativa (no condensación)
   void airquality3_porcent_humedad(){

@@ -14,57 +14,74 @@
 
 float data = 0;
 int valor = 0;
-float resultado = 0;
+int resultado_menu = 0;
+int nResultado = 0;
 
 void setup() {
   Serial.begin(9600);
-  Serial.print("Test de datos aleatorios: \n"); // Se debe cambiar según la prueba
-  Serial.print("Test de escritura: \n");
-}
 
+}
 void loop() {
-  airquality3_get_co2_and_tvoc();
-  airquality3_data_receiving();
-  airquality3_software_reset();
-}
 
+  Serial.println("\nSeleccione el modo deseado: ");
+  Serial.println("1. Prueba 1");
+  Serial.println("2. Prueba 2");
+  Serial.println("3. Prueba 3");
+  Serial.println("4. Prueba 4");
+  Serial.println("5. Prueba 5");
+  Serial.println("6. Prueba 6");
+  Serial.println("7. Prueba 7");
+  Serial.println("8. Prueba 8");
+  Serial.println("9. Prueba 9");
 
-/*****************************************************
-  Prueba de las bibliotecas en Arduino IDE
-  Estudiante: Ivan Rojas Calvo
-******************************************************/
-
-void setup(){
-  Serial.begin(9600);
-}
-
-void loop(){
-  Serial.println("");
-  Serial.println("Digite el modo de operacion <1-5> ");
-  
-  while (Serial.available() == 0){
+  while (Serial.available() == 0) {
   }
-  airquality3_set_environment_data(80); //Dato ideal para una temperatura de 9 °C según data sheet
-  airquality3_set_baseline();
-  airquality3_set_baseline(48);
-}
+  resultado_menu = Serial.parseInt(); // Asignar la variable el dato deseado
+  //seleccionarOpcion(resultado_menu); // Invoca a la función del switch para elegir el dato deseado
 
+  switch (resultado_menu)
+  {
+    case 1:
+      Modos_de_operacion();
+      delay(2000);
+      break;
 
-/*****************************************************
-  Prueba de las bibliotecas en Arduino IDE
-  Estudiante: Fabián Porras Castillo
-******************************************************/
+    case 2:
+      airquality3_temperatura_almacenada();
+      delay(2000);
+      break;
 
-  int resultado_menu;
-  void setup(){
-    Serial.begin(9600);
-    Serial.println("La medición de la temperatura ambiente en °C son de");
+    case 3:
+      airquality3_porcent_humedad();
+      delay(2000);
+      break;
+
+    case 4:
+      airquality3_get_co2_and_tvoc();
+      delay(2000);
+      Modos_de_operacion();
+      break;
+    case 5:
+      airquality3_data_receiving();
+      delay(2000);
+      break;
+    case 6:
+      airquality3_software_reset();
+      delay(2000);
+    break;
+    case 7:
+      airquality3_set_environment_data(80);
+      delay(2000);
+    break;
+    case 8:
+      airquality3_set_baseline();
+      delay(2000);
+    break;
+    case 9:
+      airquality3_set_measurement_mode(48);
+      delay(2000);
+    break;
+    default: // Cualquier caso que no sea ninguno de los anteriores
+      Serial.println("\nPor favor seleccione una opción válida. ");
   }
-  
-  void loop(){
-  Modos_de_operacion();
-  airquality3_temperatura();
-  airquality3_rangos_temperatura();
-  airquality3_porcent_humedad();
-  airquality3_rabgos_porcent_humedad();
 }

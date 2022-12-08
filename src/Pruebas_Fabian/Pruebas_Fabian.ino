@@ -10,8 +10,8 @@ Iván Rojas Calvo
 
   void setup(){
     Serial.begin(9600);
-//    Serial.println("La medición de la temperatura ambiente en °C son de: ");
-  Serial.println("La medición del porcentaje de la humedad relativa es de: ");
+//  Serial.println("La medición de la temperatura alnacemada en °C son de: ");
+//  Serial.println("La medición del porcentaje de la humedad relativa es de: ");
   }
 
   void loop(){

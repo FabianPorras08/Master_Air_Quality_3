@@ -8,7 +8,6 @@
   Estudiante: Fabián Porras Castillo
 ******************************************************/
 
-
 /************************************************************************************************************/
 
 // Prueba #1 - Modos de operación
@@ -86,24 +85,24 @@
 
 //Prueba #2 - Temperatura ambiente para la operación
 
-void airquality3_temperatura() {
-  float temp = random(-5, 50);
+void airquality3_temperatura_almacenada() {
+  float temp = random(-40, 125);
 
-  Serial.println("La temperatura ambiente en °C es de: ");
+  Serial.println("La temperatura almacenada en °C es de: ");
   Serial.println(temp);
   delay(4000);
 }
-void airquality3_rangos_temperatura() {
-  float temp = random(-5, 50);
-  Serial.println("Temperatura en °C: ");
+void airquality3_rangos_temperatura_almacenada() {
+  float temp = random(-70, 200);
+  Serial.println("Temperatura almacenada en °C: ");
   Serial.println(temp);
 
-  if (-5 >= temp >= 50) {
-    Serial.println("Temperatura ambiente óptima para su uso ");
+  if (temp >= -40 && temp <= 125) {
+    Serial.println("Temperatura almacenada óptima para su uso. ");
     delay(4000);
   }
   else {
-    Serial.println("Temperatura ambiente nada favorable para su uso ");
+    Serial.println("Temperatura almacenada nada favorable para su uso. ");
     delay(4000);
   }
 }
@@ -225,20 +224,61 @@ void airquality3_software_reset(){
 
 /************************************************************************************************************/
 
+//----------------------------------------------------------
+//  Funcion para establecer un valor de temperatura adecuado
+//----------------------------------------------------------
 
+void airquality3_set_environment_data (float fntc_steps){
+  float T;
 
-/*Ejemplos extras de programación
+  //Ecuacion para calcular temperatura
+  T = 5000 + fntc_steps*50;  
+  if(-5 > T > 50){
+    Serial.println("Temperatura normal: ");
+    Serial.print(T);
+    Serial.print(" °C");
+  }
 
-// Ejemplo de escritura de datos
-float airquality3_generic_write(float A){
-  float airquality_data = 0;
-  airquality_data = A;
-  return A;
+  //La temperatura ambiente no es la adecuada para el sensor
+  else{
+    Serial.println("ERROR Temperatura fuera de limites: ");
+    Serial.print(T);
+    Serial.print(" °C");
+  }
 }
 
-// Ejemplo de suma
-float suma(float A,float B){
-  float sum = 0;
-  sum = A+B;
-  return sum;
-}*/
+//------------------------------------------------------------
+//  Funcion que escribe comando de inicializacion de booloader
+//------------------------------------------------------------
+
+void airquality3_set_baseline(){
+  
+  Serial.println("Comando para iniciar bootloader: ");
+  while (Serial.available() == 0) {}
+  Serial.readString();
+
+  // Si el comando se escribio inicie app, sino, imprima error
+  if (Serial.readString() == "airquality3_set_baseline") {
+    Serial.println("Iniciando aplicacion adecuadamente");
+  } 
+  else {
+    Serial.println("Error al inciar aplicacion");
+  }
+}
+
+//-------------------------------------------------------
+//  Funcion para correcion de linea de base en mediciones
+//-------------------------------------------------------
+
+void airquality3_set_measurement_mode(int horas_uso){
+  
+  while(horas_uso > 24)
+  {  //24 horas 
+
+    //Durante las primeras 500 horas (5 representa 500), ajuste la linea de base cada 24-48 horas
+    for(int i; i<=5; i++){
+      Serial.println("Actualice la linea de base para mediciones de CO2 y TVOC");
+      delay(480); // Simula las 48 horas para mandar mensaje de actualizacion
+    }
+  }
+}
