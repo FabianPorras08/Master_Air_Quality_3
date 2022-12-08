@@ -1,11 +1,18 @@
+
 #include "lib.h"
 #include <Arduino.h>
 #include <stdio.h>
+
 /*****************************************************
-  Prueba de las bibliotecas en Arduino IDE
+  Pruebas de las bibliotecas en Arduino IDE
   Estudiante: Sergio Rojas Calvo
 ******************************************************/
-// Ejemplo de comparación
+
+
+/************************************************************************************************************/
+
+// Prueba #4 - Lectura y escritura de datos CO2 y TVOC
+
   int co2 = random(400,8192); // Número aleatorio para pruebas del sensor
   int tvoc = random(0,1187);
   
@@ -21,6 +28,10 @@ void airquality3_get_co2_and_tvoc(){ //int co2,int tvoc
   
   delay(1500);
   }  
+
+/************************************************************************************************************/
+
+//Prueba #5 - Recibo de datos correctos e inválidos
 
 void airquality3_data_receiving(){ 
     
@@ -42,6 +53,10 @@ void airquality3_data_receiving(){
   } 
 }
 
+/************************************************************************************************************/
+
+//Prueba #6 - Prueba de reset de software
+
 void airquality3_software_reset(){
   
   Serial.println("  Ingresar 'key'(reset) para un software reset:");
@@ -62,28 +77,20 @@ void airquality3_software_reset(){
   }
 }
 
-// Ejemplo de escritura de datos
-float airquality3_generic_write(float A){
-  float airquality_data = 0;
-  airquality_data = A;
-  return A;
-}
 
-// Ejemplo de suma
-float suma(float A,float B){
-  float sum = 0;
-  sum = A+B;
-  return sum;
-}
 /*****************************************************
-  Prueba de las bibliotecas en Arduino IDE
+  Pruebas de las bibliotecas en Arduino IDE
   Estudiante: Ivan Rojas Calvo
 ******************************************************/
 
 /*****************************************************
-  Prueba de las bibliotecas en Arduino IDE
+  Pruebas de las bibliotecas en Arduino IDE
   Estudiante: Fabián Porras Castillo
 ******************************************************/
+
+
+/************************************************************************************************************/
+
 // Prueba #1 - Modos de operación
 
   void Modos_de_operacion(){
@@ -155,6 +162,8 @@ float suma(float A,float B){
     return;
 }
 
+/************************************************************************************************************/
+
 //Prueba #2 - Temperatura ambiente para la operación
 
 void airquality3_temperatura() {
@@ -179,7 +188,10 @@ void airquality3_rangos_temperatura() {
   }
 }
 
+/************************************************************************************************************/
+
 // Prueba 3 - Humedad relativa (no condensación)
+
   void airquality3_porcent_humedad(){
     float hum = random(10,95);
   
@@ -200,4 +212,23 @@ void airquality3_rangos_temperatura() {
       Serial.println("Humedad relativa nada favorable para su uso ");
       delay(4000);
     }
-  }
+}
+
+
+/************************************************************************************************************/
+
+/*Ejemplos extras de programación
+
+// Ejemplo de escritura de datos
+float airquality3_generic_write(float A){
+  float airquality_data = 0;
+  airquality_data = A;
+  return A;
+}
+
+// Ejemplo de suma
+float suma(float A,float B){
+  float sum = 0;
+  sum = A+B;
+  return sum;
+}*/
